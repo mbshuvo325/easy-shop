@@ -36,6 +36,9 @@ flutter:
     - family: Signatra
       fonts:
         - asset: assets/fonts/Signatra.ttf
+    - family: ConcertOne
+      fonts:
+        - asset: assets/fonts/ConcertOne-Regular.ttf
 
   assets:
     - images/welcome.png

@@ -21,6 +21,7 @@ class _UploadPageState extends State<UploadPage> with AutomaticKeepAliveClientMi
 {
   bool get wantKeepAlive => true;
   File file;
+  String uploadfile;
   TextEditingController _descriptionTextEditingcontriller = TextEditingController();
   TextEditingController _priceTextEditingcontriller = TextEditingController();
   TextEditingController _titleEditingcontriller = TextEditingController();
@@ -261,14 +262,16 @@ class _UploadPageState extends State<UploadPage> with AutomaticKeepAliveClientMi
   uloadImageAndSaveitem() async{
     setState(() {
       uploading = true;
+      uploadfile = file.path;
     });
-   String imageDownloadUrl = await uploadImage(file);
-   saveIteminfo(imageDownloadUrl);
+    await uploadImage(uploadfile).then((imageDownloadUrl){
+     saveIteminfo(imageDownloadUrl);
+   });
   }
  Future<String> uploadImage(imagefile) async{
    String imageFileName  = DateTime.now().millisecondsSinceEpoch.toString();
    StorageReference rootRef = FirebaseStorage.instance.ref();
-   StorageReference photoRef = rootRef.child("EshopProduce_${productId}.jpg").child(imageFileName);
+   StorageReference photoRef = rootRef.child("EshopProduceImage").child(imageFileName);
    final upLoadTask = photoRef.putFile(File(imagefile));
    final snapshot = await upLoadTask.onComplete;
    final url = await (snapshot.ref.getDownloadURL());
@@ -278,7 +281,7 @@ class _UploadPageState extends State<UploadPage> with AutomaticKeepAliveClientMi
     FirebaseFirestore.instance.collection("eshopItem").doc(productId).set({
       "shortInfo" : _shortInfoEditingcontriller.text.trim(),
       "longDescription" : _descriptionTextEditingcontriller.text.trim(),
-      "price" :_priceTextEditingcontriller.text.trim(),
+      "price" : int.parse(_priceTextEditingcontriller.text),
       "publishedDate" :DateTime.now(),
       "status" : "Avaible",
       "thumbnailUrl" : imageUrl,

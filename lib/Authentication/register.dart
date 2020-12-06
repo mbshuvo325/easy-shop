@@ -148,7 +148,6 @@ class _RegisterState extends State<Register>
     setState(() {
       _imageurl = url;
       user.imageUrl = _imageurl;
-      print(user.imageUrl);
       _registerUser();
     });
   }

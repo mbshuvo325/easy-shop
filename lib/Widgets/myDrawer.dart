@@ -45,7 +45,7 @@ class MyDrawer extends StatelessWidget {
                 ),
                 SizedBox(height: 10.0,),
                 Text(EcommerceApp.sharedPreferences.getString(EcommerceApp.userName),style: TextStyle(
-                  color: Colors.white,fontSize: 30,fontFamily: "signatra"
+                  color: Colors.white,fontSize: 30,fontFamily: "ConcertOne"
                 ),),
               ],
             ),
@@ -65,7 +65,7 @@ class MyDrawer extends StatelessWidget {
               children: [
                 ListTile(
                   leading: Icon(Icons.home,color: Colors.lightGreenAccent,),
-                  title: Text("Home",style: TextStyle(color: Colors.white),),
+                  title: Text("Home",style: TextStyle(color: Colors.white,fontFamily: "ConcertOne",fontSize: 20),),
                   trailing: Icon(Icons.arrow_forward_ios,color: Colors.pink,),
                   onTap: (){
                     Navigator.of(context).pop();
@@ -74,8 +74,8 @@ class MyDrawer extends StatelessWidget {
                 ),
                 Divider(height: 10,color: Colors.white,thickness: 6.0,),
                 ListTile(
-                  leading: Icon(Icons.home,color: Colors.lightGreenAccent,),
-                  title: Text("My Orders",style: TextStyle(color: Colors.white),),
+                  leading: Icon(Icons.reorder,color: Colors.lightGreenAccent,),
+                  title: Text("My Orders",style: TextStyle(color: Colors.white,fontFamily: "ConcertOne",fontSize: 20),),
                   trailing: Icon(Icons.arrow_forward_ios,color: Colors.pink,),
                   onTap: (){
                     Navigator.of(context).pop();
@@ -85,7 +85,7 @@ class MyDrawer extends StatelessWidget {
                 Divider(height: 10,color: Colors.white,thickness: 6.0,),
                 ListTile(
                   leading: Icon(Icons.shopping_cart,color: Colors.lightGreenAccent,),
-                  title: Text("My Carts",style: TextStyle(color: Colors.white),),
+                  title: Text("My Carts",style: TextStyle(color: Colors.white,fontFamily: "ConcertOne",fontSize: 20),),
                   trailing: Icon(Icons.arrow_forward_ios,color: Colors.pink,),
                   onTap: (){
                     Navigator.of(context).pop();
@@ -95,7 +95,7 @@ class MyDrawer extends StatelessWidget {
                 Divider(height: 10,color: Colors.white,thickness: 6.0,),
                 ListTile(
                   leading: Icon(Icons.search,color: Colors.lightGreenAccent,),
-                  title: Text("Search",style: TextStyle(color: Colors.white),),
+                  title: Text("Search",style: TextStyle(color: Colors.white,fontFamily: "ConcertOne",fontSize: 20),),
                   trailing: Icon(Icons.arrow_forward_ios,color: Colors.pink,),
                   onTap: (){
                     Navigator.of(context).pop();
@@ -104,8 +104,8 @@ class MyDrawer extends StatelessWidget {
                 ),
                 Divider(height: 10,color: Colors.white,thickness: 6.0,),
                 ListTile(
-                  leading: Icon(Icons.home,color: Colors.lightGreenAccent,),
-                  title: Text("Add New Address",style: TextStyle(color: Colors.white),),
+                  leading: Icon(Icons.add_location,color: Colors.lightGreenAccent,),
+                  title: Text("Add New Address",style: TextStyle(color: Colors.white,fontFamily: "ConcertOne",fontSize: 20),),
                   trailing: Icon(Icons.arrow_forward_ios,color: Colors.pink,),
                   onTap: (){
                     Navigator.of(context).pop();
@@ -115,7 +115,7 @@ class MyDrawer extends StatelessWidget {
                 Divider(height: 10,color: Colors.white,thickness: 6.0,),
                 ListTile(
                   leading: Icon(Icons.power_settings_new,color: Colors.lightGreenAccent,),
-                  title: Text("LogOut",style: TextStyle(color: Colors.white),),
+                  title: Text("LogOut",style: TextStyle(color: Colors.white,fontFamily: "ConcertOne",fontSize: 20),),
                   trailing: Icon(Icons.arrow_forward_ios,color: Colors.pink,),
                   onTap: (){
                     showDialog(context: context,builder: (c){
@@ -131,9 +131,8 @@ class MyDrawer extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 70.0),
                   child: ListTile(
-                    leading: Icon(Icons.arrow_back,color: Colors.lightGreenAccent,),
-                    title: Text("Exit",style: TextStyle(color: Colors.white),),
-
+                    leading: Icon(Icons.exit_to_app,color: Colors.lightGreenAccent,),
+                    title: Text("Exit",style: TextStyle(color: Colors.white,fontFamily: "ConcertOne",fontSize: 20),),
                     onTap: (){
                         Navigator.of(context).pop();
                     },

@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 class EcommerceApp
@@ -12,7 +11,7 @@ class EcommerceApp
    static FirebaseAuth auth;
    static FirebaseFirestore firestore ;
 
-   static String collectionUser = "users";
+   static String collectionUser = "esusers";
    static String collectionOrders = "orders";
    static String userCartList = 'userCart';
    static String subCollectionAddress = 'userAddress';

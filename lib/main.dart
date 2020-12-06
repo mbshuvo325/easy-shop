@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:e_shop/Counters/BookQuantity.dart';
+import 'package:e_shop/Counters/ItemsQuantity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,13 +27,21 @@ Future<void> main() async
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-            title: 'e-Shop',
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              primaryColor: Colors.green,
-            ),
-            home: SplashScreen()
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (c) => CartItemCounter(),),
+        ChangeNotifierProvider(create: (c) => ItemkQuantity(),),
+        ChangeNotifierProvider(create: (c) => AddressChanger(),),
+        ChangeNotifierProvider(create: (c) => TotalAmount(),),
+      ],
+      child: MaterialApp(
+              title: 'e-Shop',
+              debugShowCheckedModeBanner: false,
+              theme: ThemeData(
+                primaryColor: Colors.green,
+              ),
+              home: SplashScreen()
+      ),
     );
   }
 }
@@ -78,13 +86,14 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("Welcome",style: TextStyle(color: Colors.white,fontSize: 25),),
+              Text("Welcome",style: TextStyle(color: Colors.white,fontSize: 25,fontFamily: "ConcertOne"),),
               SizedBox(height: 20,),
               Image.asset("images/welcome.png"),
               SizedBox(height: 50,),
               Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Text("World number '1' online Shopping platform",style: TextStyle(color: Colors.white,fontSize: 17),),
+                child: Text("World number '1' online Shopping platform",
+                  style: TextStyle(color: Colors.white,fontSize: 17,fontFamily: "ConcertOne"),),
               )
             ],
           ),
